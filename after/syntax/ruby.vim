@@ -1,1 +1,0 @@
-/home/austin/.vim/merb.vim/after/syntax/ruby.vim

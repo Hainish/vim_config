@@ -1,49 +1,26 @@
-" colors vividchalk
-syntax on
-set number
+set nocompatible
+set autoindent
+set smartindent
 
-" use ack for grep
-set grepprg=ack
-set grepformat=%f:%l:%m
-
-" default spacing
+set expandtab "use spaces instead of tabs
 set softtabstop=2
 set shiftwidth=2
-set autoindent
-set expandtab
-set backspace=start,eol,indent
-
-" searching
-" set hlsearch
-set incsearch
-
-" advice from sjbach.com
-
-set hidden
-nnoremap ` '
-nnoremap ' `
-let mapleader = ","
-set history=1000
-set wildmenu
-set wildmode=list:longest
-set ignorecase
-set smartcase
-set title
-set scrolloff=3
-
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set shiftround
+set number
+set showmatch "show matching bracket
 set ruler
-filetype on
-filetype plugin on   
-filetype indent on
-set listchars=tab:>-,trail:-,eol:$
-nmap <silent> <leader>s :set nolist!<CR>   
+set incsearch
+set ignorecase "search results ignore case
+set hlsearch  "highlight search results
+set backspace=indent,eol,start
+set hidden "you don't have to save to switch buffers
+set iskeyword+=_,$,@,%,# " none of these are word dividers 
 
-" fuzzy finder
-let g:fuzzy_ignore = "*.log"
-let g:fuzzy_matching_limit = 70
+syntax on
+filetype plugin indent on
 
-map <leader>t :FuzzyFinderTextMate<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
-
+set wildmenu " turn on command line completion wild style
+" ignore these list file extensions
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
+"set wildmode=list:longest " turn on wild mode huge list
+set backupdir=~/.vim,/var/tmp,/tmp

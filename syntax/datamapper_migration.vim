@@ -1,1 +1,0 @@
-/home/austin/.vim/merb.vim/syntax/datamapper_migration.vim
