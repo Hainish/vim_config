@@ -1,8 +1,9 @@
-set t_Co=256
+
 color molokai
 set nocompatible
 set autoindent
 set smartindent
+
 set expandtab "use spaces instead of tabs
 set softtabstop=2
 set shiftwidth=2
@@ -28,5 +29,3 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 "set wildmode=list:longest " turn on wild mode huge list
 set backupdir=~/.vim/backups,/var/tmp,/tmp
 set backup
-
-map <F2> <ESC>:NERDTreeToggle<CR>

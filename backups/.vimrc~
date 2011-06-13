@@ -28,5 +28,3 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 "set wildmode=list:longest " turn on wild mode huge list
 set backupdir=~/.vim/backups,/var/tmp,/tmp
 set backup
-
-map <F2> <ESC>:NERDTreeToggle<CR>

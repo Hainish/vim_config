@@ -1,1 +1,0 @@
-/home/austin/.vim/merb.vim/ftdetect/merb.vim
