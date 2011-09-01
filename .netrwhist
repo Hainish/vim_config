@@ -1,7 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/flatline/code/android-sdk-linux_x86/samples/android-12/BluetoothChat/src/com/example/android/BluetoothChat'
-let g:netrw_dirhist_2='/home/flatline/code/tubewarriors'
-let g:netrw_dirhist_3='/home/flatline/code/tubewarriors/client'
-let g:netrw_dirhist_4='/home/flatline/code/tubewarriors/client/js'
-let g:netrw_dirhist_5='/home/flatline/.vim/indent'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/flatline/code/rockwood/lib'
+let g:netrw_dirhist_2='/home/flatline/code/revent'
