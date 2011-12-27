@@ -79,14 +79,13 @@ syntax region  javaScriptRegexpString   start=+\(\(\(return\|case\)\s\+\)\@<=\|\
 syntax match   javaScriptNumber         /\<-\=\d\+L\=\>\|\<0[xX]\x\+\>/
 syntax match   javaScriptFloat          /\<-\=\%(\d\+\.\d\+\|\d\+\.\|\.\d\+\)\%([eE][+-]\=\d\+\)\=\>/
 syntax match   javaScriptLabel          /\(?\s*\)\@<!\<\w\+\(\s*:\)\@=/
-syntax match   javaScriptFunctionCall   /\(\.\@<=\w\+\)\((\)\@=/
 
 "" JavaScript Prototype
 syntax keyword javaScriptPrototype      prototype
 
 "" Programm Keywords
 syntax keyword javaScriptSource         import export
-syntax keyword javaScriptType           const undefined var void yield callee
+syntax keyword javaScriptType           const undefined var void yield 
 syntax keyword javaScriptOperator       delete new in instanceof let typeof
 syntax keyword javaScriptBoolean        true false
 syntax keyword javaScriptNull           null
@@ -95,7 +94,7 @@ syntax keyword javaScriptThis           this
 "" Statement Keywords
 syntax keyword javaScriptConditional    if else
 syntax keyword javaScriptRepeat         do while for
-syntax keyword javaScriptBranch         break continue switch case default return instanceof arguments
+syntax keyword javaScriptBranch         break continue switch case default return
 syntax keyword javaScriptStatement      try catch throw with finally
 
 syntax keyword javaScriptGlobalObjects  Array Boolean Date Function Infinity JavaArray JavaClass JavaObject JavaPackage Math Number NaN Object Packages RegExp String Undefined java netscape sun
@@ -106,25 +105,18 @@ syntax keyword javaScriptFutureKeys     abstract enum int short boolean export i
 
 "" DOM/HTML/CSS specified things
 
-" DOM2 Objects
-syntax keyword javaScriptGlobalObjects  DOMImplementation DocumentFragment Document Node NodeList NamedNodeMap CharacterData Attr Element Text Comment CDATASection DocumentType Notation Entity EntityReference ProcessingInstruction setTimeout setInterval
-syntax keyword javaScriptExceptions     DOMException
+  " DOM2 Objects
+  syntax keyword javaScriptGlobalObjects  DOMImplementation DocumentFragment Document Node NodeList NamedNodeMap CharacterData Attr Element Text Comment CDATASection DocumentType Notation Entity EntityReference ProcessingInstruction
+  syntax keyword javaScriptExceptions     DOMException
 
-" DOM2 CONSTANT
-syntax keyword javaScriptDomErrNo       INDEX_SIZE_ERR DOMSTRING_SIZE_ERR HIERARCHY_REQUEST_ERR WRONG_DOCUMENT_ERR INVALID_CHARACTER_ERR NO_DATA_ALLOWED_ERR NO_MODIFICATION_ALLOWED_ERR NOT_FOUND_ERR NOT_SUPPORTED_ERR INUSE_ATTRIBUTE_ERR INVALID_STATE_ERR SYNTAX_ERR INVALID_MODIFICATION_ERR NAMESPACE_ERR INVALID_ACCESS_ERR
-syntax keyword javaScriptDomNodeConsts  ELEMENT_NODE ATTRIBUTE_NODE TEXT_NODE CDATA_SECTION_NODE ENTITY_REFERENCE_NODE ENTITY_NODE PROCESSING_INSTRUCTION_NODE COMMENT_NODE DOCUMENT_NODE DOCUMENT_TYPE_NODE DOCUMENT_FRAGMENT_NODE NOTATION_NODE
+  " DOM2 CONSTANT
+  syntax keyword javaScriptDomErrNo       INDEX_SIZE_ERR DOMSTRING_SIZE_ERR HIERARCHY_REQUEST_ERR WRONG_DOCUMENT_ERR INVALID_CHARACTER_ERR NO_DATA_ALLOWED_ERR NO_MODIFICATION_ALLOWED_ERR NOT_FOUND_ERR NOT_SUPPORTED_ERR INUSE_ATTRIBUTE_ERR INVALID_STATE_ERR SYNTAX_ERR INVALID_MODIFICATION_ERR NAMESPACE_ERR INVALID_ACCESS_ERR
+  syntax keyword javaScriptDomNodeConsts  ELEMENT_NODE ATTRIBUTE_NODE TEXT_NODE CDATA_SECTION_NODE ENTITY_REFERENCE_NODE ENTITY_NODE PROCESSING_INSTRUCTION_NODE COMMENT_NODE DOCUMENT_NODE DOCUMENT_TYPE_NODE DOCUMENT_FRAGMENT_NODE NOTATION_NODE
 
-" HTML events and internal variables
-syntax case ignore
-syntax keyword javaScriptHtmlEvents     onblur onclick oncontextmenu ondblclick onfocus onkeydown onkeypress onkeyup onmousedown onmousemove onmouseout onmouseover onmouseup onresize
-syntax case match
-
-" node.js
-syntax keyword javaScriptNodeGlobals  Buffer GLOBAL clearInterval clearTimeout console exports global module process require root setInterval setTimeout __dirname __filename
-
-" jQuery
-syntax match jQuery          /\.\@<!\(\$\|jQuery\)\((\|.\)\@=/
-syntax match selfANDthat     /\(self\|that\)\(\.\|(\)\@=/
+  " HTML events and internal variables
+  syntax case ignore
+  syntax keyword javaScriptHtmlEvents     onblur onclick oncontextmenu ondblclick onfocus onkeydown onkeypress onkeyup onmousedown onmousemove onmouseout onmouseover onmouseup onresize
+  syntax case match
 
 " Follow stuff should be highligh within a special context
 " While it can't be handled with context depended with Regex based highlight
@@ -159,8 +151,9 @@ endif "DOM/HTML/CSS
 
 "" end DOM/HTML/CSS specified things
 
+
 "" Code blocks
-syntax cluster javaScriptAll       contains=javaScriptComment,javaScriptLineComment,javaScriptDocComment,javaScriptStringD,javaScriptStringS,javaScriptRegexpString,javaScriptNumber,javaScriptFloat,javaScriptLabel,javaScriptSource,javaScriptThis,javaScriptType,javaScriptOperator,javaScriptBoolean,javaScriptNull,javaScriptFunction,javaScriptConditional,javaScriptRepeat,javaScriptBranch,javaScriptStatement,javaScriptGlobalObjects,javaScriptExceptions,javaScriptFutureKeys,javaScriptDomErrNo,javaScriptDomNodeConsts,javaScriptHtmlEvents,javaScriptDotNotation,javaScriptNodeGlobals,javaScriptFunctionCall,jQuery,selfANDthat
+syntax cluster javaScriptAll       contains=javaScriptComment,javaScriptLineComment,javaScriptDocComment,javaScriptStringD,javaScriptStringS,javaScriptRegexpString,javaScriptNumber,javaScriptFloat,javaScriptLabel,javaScriptSource,javaScriptThis,javaScriptType,javaScriptOperator,javaScriptBoolean,javaScriptNull,javaScriptFunction,javaScriptConditional,javaScriptRepeat,javaScriptBranch,javaScriptStatement,javaScriptGlobalObjects,javaScriptExceptions,javaScriptFutureKeys,javaScriptDomErrNo,javaScriptDomNodeConsts,javaScriptHtmlEvents,javaScriptDotNotation
 syntax region  javaScriptBracket   matchgroup=javaScriptBracket transparent start="\[" end="\]" contains=@javaScriptAll,javaScriptParensErrB,javaScriptParensErrC,javaScriptBracket,javaScriptParen,javaScriptBlock,@htmlPreproc
 syntax region  javaScriptParen     matchgroup=javaScriptParen   transparent start="("  end=")"  contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrC,javaScriptParen,javaScriptBracket,javaScriptBlock,@htmlPreproc
 syntax region  javaScriptBlock     matchgroup=javaScriptBlock   transparent start="{"  end="}"  contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrB,javaScriptParen,javaScriptBracket,javaScriptBlock,@htmlPreproc 
@@ -177,21 +170,11 @@ if main_syntax == "javascript"
   syntax sync match javaScriptHighlight grouphere javaScriptBlock /{/
 endif
 
-
-" TEST
-syntax match   javaScriptFunction       /\<\(function\)\>/ nextgroup=javaScriptFuncName,javaScriptFuncArguments skipwhite
-" syntax match   javaScriptOpAssign       contained /=\@<!=/ nextgroup=javaScriptFuncName skipwhite skipempty
-syntax match   javaScriptFuncName       contained "\w\+" nextgroup=javaScriptFuncArguments skipwhite
-syntax region  javaScriptFuncArguments  start=/(/ skip=/,/ end=/)/ contains=@javaScriptAll,javaScriptLineComment,javaScriptComment nextgroup=javaScriptFuncBlock skipwhite skipempty
-syntax region  javaScriptFuncBlock      contained matchgroup=javaScriptFuncBlock start="{" end="}" contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrB,javaScriptParen,javaScriptBracket,javaScriptBlock fold
-
-
 "" Fold control
 if exists("b:javascript_fold")
-    syntax match   javaScriptFunction       /\<\(function\)\>/ nextgroup=javaScriptFuncName,javaScriptFuncArguments skipwhite
-    " syntax match   javaScriptOpAssign       contained /=\@<!=/ nextgroup=javaScriptFuncName skipwhite skipempty
-    syntax match   javaScriptFuncName       contained "\w\+" nextgroup=javaScriptFuncArguments skipwhite
-    syntax region  javaScriptFuncArguments  start=/(/ end=/)/ contains=@javaScriptAll,javaScriptLineComment,javaScriptComment nextgroup=javaScriptFuncBlock skipwhite skipempty
+    syntax match   javaScriptFunction       /\<function\>/ nextgroup=javaScriptFuncName skipwhite
+    syntax match   javaScriptOpAssign       /=\@<!=/ nextgroup=javaScriptFuncBlock skipwhite skipempty
+    syntax region  javaScriptFuncName       contained matchgroup=javaScriptFuncName start=/\%(\$\|\w\)*\s*(/ end=/)/ contains=javaScriptLineComment,javaScriptComment nextgroup=javaScriptFuncBlock skipwhite skipempty
     syntax region  javaScriptFuncBlock      contained matchgroup=javaScriptFuncBlock start="{" end="}" contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrB,javaScriptParen,javaScriptBracket,javaScriptBlock fold
 else
     syntax keyword javaScriptFunction       function
@@ -207,7 +190,6 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   else
     command -nargs=+ HiLink hi def link <args>
   endif
-
   HiLink javaScriptComment              Comment
   HiLink javaScriptLineComment          Comment
   HiLink javaScriptEnvComment           PreProc
@@ -229,11 +211,7 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   HiLink javaScriptBranch               Conditional
   HiLink javaScriptRepeat               Repeat
   HiLink javaScriptStatement            Statement
-
   HiLink javaScriptFunction             Function
-  " HiLink javaScriptFuncArguments        Special
-  HiLink javaScriptFuncName             Constant
-
   HiLink javaScriptError                Error
   HiLink javaScriptParensError          Error
   HiLink javaScriptParensErrA           Error
@@ -262,14 +240,6 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   HiLink javaScriptHtmlElemFuncs        PreProc
 
   HiLink javaScriptCssStyles            Label
-
-  " Node.js
-  HiLink javaScriptNodeGlobals          Constant
-
-  " jQuery
-  HiLink jQuery                         Constant
-  HiLink javaScriptFunctionCall         Constant
-  HiLink selfANDthat                    Type
 
   delcommand HiLink
 endif
