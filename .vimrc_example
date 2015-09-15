@@ -17,6 +17,8 @@ set backspace=indent,eol,start
 set hidden "you don't have to save to switch buffers
 set iskeyword+=_,$,@,%,# " none of these are word dividers 
 
+execute pathogen#infect()
+
 syntax on
 filetype plugin indent on
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
