@@ -20,7 +20,13 @@ elseif !exists("b:jst_subtype") && main_syntax == 'jst'
   endif
   if b:jst_subtype == 'rhtml'
     let b:jst_subtype = 'html'
+  elseif b:jst_subtype == 'hamljs'
+    let b:jst_subtype = 'haml'
   elseif b:jst_subtype == 'ejs'
+    let b:jst_subtype = 'html'
+  elseif b:jst_subtype == 'ect'
+    let b:jst_subtype = 'html'
+  elseif b:jst_subtype == 'djs'
     let b:jst_subtype = 'html'
   elseif b:jst_subtype == 'rb'
     let b:jst_subtype = 'ruby'
@@ -47,6 +53,7 @@ if exists("b:jst_subtype") && b:jst_subtype != ''
   exe "runtime! syntax/".b:jst_subtype.".vim"
   unlet! b:current_syntax
 endif
+
 syn include @jsTop syntax/javascript.vim
 
 syn cluster jstRegions contains=jstOneLiner,jstBlock,jstExpression,jstComment
@@ -65,6 +72,16 @@ let b:current_syntax = 'jst'
 
 if main_syntax == 'jst'
   unlet main_syntax
+endif
+
+set commentstring=<!--%s-->
+
+if exists("loaded_matchit")
+  let b:match_ignorecase = 1
+  let b:match_words = '<:>,' .
+  \ '<\@<=[ou]l\>[^>]*\%(>\|$\):<\@<=li\>:<\@<=/[ou]l>,' .
+  \ '<\@<=dl\>[^>]*\%(>\|$\):<\@<=d[td]\>:<\@<=/dl>,' .
+  \ '<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
 endif
 
 " vim: nowrap sw=2 sts=2 ts=8:
