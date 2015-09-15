@@ -1,4 +1,7 @@
 set t_Co=256
+
+execute pathogen#infect()
+
 color molokai
 set nocompatible
 set autoindent
@@ -16,8 +19,6 @@ set smartcase "search results ignore case unless there are caps
 set backspace=indent,eol,start
 set hidden "you don't have to save to switch buffers
 set iskeyword+=_,$,@,%,# " none of these are word dividers 
-
-execute pathogen#infect()
 
 syntax on
 filetype plugin indent on
