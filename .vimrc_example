@@ -3,6 +3,7 @@ set t_Co=256
 execute pathogen#infect()
 
 color molokai
+set colorcolumn=80
 set nocompatible
 set autoindent
 set smartindent
